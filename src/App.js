@@ -9,6 +9,9 @@ import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 
+import Body from './body/Body.js'
+
+
 class App extends Component {
   constructor () {
     super()
@@ -54,6 +57,7 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword flash={this.flash} user={user} />
           )} />
+          <Route path='/body' component={Body}/>
         </main>
       </React.Fragment>
     )
