@@ -9,7 +9,7 @@ import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 
-import Body from './body/Body.js'
+import Audio from './body/Audio.js'
 
 
 class App extends Component {
@@ -57,7 +57,7 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword flash={this.flash} user={user} />
           )} />
-          <Route path='/body' component={Body}/>
+          <Route path='/body' component={Audio}/>
         </main>
       </React.Fragment>
     )

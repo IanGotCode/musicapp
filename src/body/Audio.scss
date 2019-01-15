@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+}
+
+.form {
+    width: 50%;
+    margin-right: 0;
+    margin-right: 0;
+    border: .2rem solid black;
+}
+
+.form legend {
+    margin: 0 auto;
+    background-color: rgb(0, 0, 120);
+    color: white;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    width: 100%
+}
+
+input {
+    border: 0.08rem solid black;
+    position: relative;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.form fieldset {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    border: 0;
+}
+
+.for input {
+    margin-top: 2.0rem;
+    border: 0;
+    background-color: red;
+    color: black;
+    font-size: 1rem;
+}
+
+.form input:hover {
+    background-color: blue;
+    cursor: pointer;
+}
