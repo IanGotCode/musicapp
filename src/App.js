@@ -10,6 +10,11 @@ import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 
 import Audio from './body/Audio.js'
+import AudioDelete from './body/AudioDelete.js'
+import AudioIndex from './body/AudioIndex.js'
+import AudioShow from './body/AudioShow.js'
+import AudioUpdate from './body/AudioUpdate.js'
+
 
 
 class App extends Component {
@@ -57,7 +62,21 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword flash={this.flash} user={user} />
           )} />
-          <Route path='/body' component={Audio}/>
+          <AuthenticatedRoute user={user} path='/body' render={() => (
+            <Audio flash={this.flash} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/delete' render={() => (
+            <AudioDelete flash={this.flash} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/update' render={() => (
+            <AudioUpdate flash={this.flash} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/show' render={() => (
+            <AudioShow flash={this.flash} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/index' render={() => (
+            <AudioIndex flash={this.flash} user={user} />
+          )} />
         </main>
       </React.Fragment>
     )

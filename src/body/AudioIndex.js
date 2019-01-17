@@ -2,16 +2,15 @@ import React, { Component } from 'react'
 import './Audio.scss'
 
 
-export class Audio extends Component {
+export class AudioIndex extends Component {
   
   render() {
     return (
       <div className='container'>
         <form className='form'>
-          <legend>Add Youtube Link</legend>
+          <legend>Index Youtube Link</legend>
           <fieldset>
-            <input placeholder='Title of Song'></input>
-            <input placeholder='Artist Name'></input>
+            <input placeholder='ID'></input>
             <input type='submit' value='submit'></input>
           </fieldset>
         </form>
@@ -22,4 +21,4 @@ export class Audio extends Component {
 
 
 
-export default Audio
+export default AudioIndex

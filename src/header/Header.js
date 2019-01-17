@@ -7,6 +7,11 @@ const authenticatedOptions = (
   <React.Fragment>
     <Link to="/change-password">Change Password</Link>
     <Link to="/sign-out">Sign Out</Link>
+    <Link to='/body'>Audio Save</Link>
+    <Link to='/delete'>Delete</Link>
+    <Link to='/update'>Update</Link>
+    <Link to='/show'>Show</Link>
+    <Link to='/index'>Index</Link>
   </React.Fragment>
 )
 
@@ -17,17 +22,11 @@ const unauthenticatedOptions = (
   </React.Fragment>
 )
 
-const alwaysOptions = (
-  <React.Fragment>
-    <Link to="/">Home</Link>
-  </React.Fragment>
-)
-
-const audioSave = (
-  <React.Fragment>
-    <Link to='/body'>Audio Save</Link>
-  </React.Fragment>
-)
+// const audioSave = (
+//   <React.Fragment>
+//     <Link to='/body'>Audio Save</Link>
+//   </React.Fragment>
+// )
 
 const Header = ({ user }) => (
   <header className="main-header">
@@ -35,8 +34,6 @@ const Header = ({ user }) => (
     <nav>
       { user && <span>Welcome, {user.email}</span>}
       { user ? authenticatedOptions : unauthenticatedOptions }
-      { alwaysOptions }
-      { audioSave }
     </nav>
   </header>
 )
