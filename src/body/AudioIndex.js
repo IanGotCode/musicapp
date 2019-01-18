@@ -1,24 +1,24 @@
-import React, { Component } from 'react'
-import './Audio.scss'
+import React from 'react'
 
-
-export class AudioIndex extends Component {
+const AudioIndex = props => {
   
-  render() {
-    return (
-      <div className='container'>
-        <form className='form'>
-          <legend>Index Youtube Link</legend>
-          <fieldset>
-            <input placeholder='ID'></input>
-            <input type='submit' value='submit'></input>
-          </fieldset>
-        </form>
-      </div>
-    )
-  }
+
+  const Audio = props.audios.map((audio, index) => {
+    return <div key={ index }>
+      <h3>{ audio.title } (ID: { audio.id })</h3>
+
+      <ul>
+        <li>title: { audio.title }</li>
+        <li>artist: { audio.artist }</li>
+      </ul>
+    </div>
+  })
+  return (
+    <div>
+      { Audio }
+    </div>
+  )
+  
 }
-
-
 
 export default AudioIndex

@@ -15,6 +15,8 @@ import AudioIndex from './body/AudioIndex.js'
 import AudioShow from './body/AudioShow.js'
 import AudioUpdate from './body/AudioUpdate.js'
 
+import { axiosPostAudio, axiosGetAudiosAuthenticated, axiosPatchAudio } from './body/audioApi'
+
 
 
 class App extends Component {
@@ -24,8 +26,35 @@ class App extends Component {
     this.state = {
       user: null,
       flashMessage: '',
-      flashType: null
+      flashType: null,
+      audios: []
     }
+  }
+
+  getAllAudios = () => {
+    // getMovies()
+    //   .then(res => res.ok ? res : new Error())
+    //   .then(res => res.json())
+    //   .then(res => this.setState({ movies: res.movies }))
+    //   .then(() => this.props.flash('Got them; movies\', Shawn', 'flash-success'))
+    //   .catch(() => console.error('oh no got an error'))
+
+    // axiosGetMovies()
+    //   .then(res => this.setState({ movies: res.data.movies }))
+    //   .then(() => this.props.flash('Got them; movies\', Shawn', 'flash-success'))
+    //   .catch(() => console.error('oh no got an error'))
+
+    // getMoviesAuthenticated(this.props.user)
+    //   .then(res => res.ok ? res : new Error())
+    //   .then(res => res.json())
+    //   .then(res => this.setState({ movies: res.movies }))
+    //   .then(() => this.props.flash('Got them; movies\', Shawn', 'flash-success'))
+    //   .catch(() => console.error('oh no got an error'))
+
+    axiosGetAudiosAuthenticated(this.state.user)
+      .then(res => this.setState({ audios: res.data.audios }))
+      .then(() => this.flash('Got Audio\', Ian', 'flash-success'))
+      .catch((err) => console.error(err))
   }
 
   setUser = user => this.setState({ user })
@@ -62,9 +91,22 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword flash={this.flash} user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/body' render={() => (
-            <Audio flash={this.flash} user={user} />
-          )} />
+          <AuthenticatedRoute 
+            user={user} 
+            path='/create' render={() => (
+              <Audio 
+                audios={this.state.audios}
+                flash={this.flash} 
+                user={user} />
+            )} />
+          <AuthenticatedRoute 
+            user={user} 
+            path='/index' render={() => (
+              <AudioIndex 
+                audios={this.state.audios}
+                flash={this.flash} 
+                user={user} />
+            )} />
           <AuthenticatedRoute user={user} path='/delete' render={() => (
             <AudioDelete flash={this.flash} user={user} />
           )} />

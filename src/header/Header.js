@@ -7,7 +7,7 @@ const authenticatedOptions = (
   <React.Fragment>
     <Link to="/change-password">Change Password</Link>
     <Link to="/sign-out">Sign Out</Link>
-    <Link to='/body'>Audio Save</Link>
+    <Link to='/create'>Audio Save</Link>
     <Link to='/delete'>Delete</Link>
     <Link to='/update'>Update</Link>
     <Link to='/show'>Show</Link>
