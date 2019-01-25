@@ -1,9 +1,8 @@
 import React from 'react'
 
 const AudioIndex = props => {
-  
-
-  const Audio = props.audios.map((audio, index) => {
+  const audios = props.audios
+  const Audio = audios.map((audio, index) => {
     return <div key={ index }>
       <h3>{ audio.title } (ID: { audio.id })</h3>
 

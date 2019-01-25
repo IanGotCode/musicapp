@@ -10,12 +10,20 @@ const apiUrl = 'http://localhost:4741'
 
 
 export const axiosGetAudiosAuthenticated = (user) => {
-  return axios.get(apiUrl + '/index', {
+  return axios.get(apiUrl + '/audios', {
     headers: {
       'Authorization':`Token token=${user.token}`
     }
   })
 }
+
+// export const axiosGetAudiosAuthenticated = (user) => {
+//   return axios.get(apiUrl + '/audios', {
+//     headers: {
+//       'Authorization':`Token token=${user.token}`
+//     }
+//   })
+// }
 
 
 
@@ -31,9 +39,20 @@ export const axiosPostAudio = (data, user) => {
 export const axiosPatchAudio = (data, user) => {
   const { id } = data
   delete data.id
-  return axios.patch(apiUrl + '/update/' + id, { audio: { ...data }}, {
+  return axios.patch(apiUrl + '/audios/' + id, { audio: { ...data }}, {
     headers: {
       'Authorization': `Token token=${user.token}`,
     }
   })
 }
+
+// export const axiosDeleteAudio = (data, user) => {
+//   const { id } = data
+//   delete data.id
+//   console.log(data)
+//   return axios.delete(apiUrl + '/audios/' + id, {
+//     headers: {
+//       'Authorization': `Token token=${user.token}`,
+//     }
+//   })
+// }

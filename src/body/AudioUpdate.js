@@ -14,8 +14,12 @@ export default class AudioUpdate extends Component {
   }
 
   componentDidMount () {
-    const firstAudioId = this.props.audios[0].id
-    this.changeMovieData(firstAudioId)
+    if (this.props.audios.length > 0) {
+      const firstAudioId = this.props.audios[0].id
+      this.changeAudioData(firstAudioId)
+    } else {
+      
+    } 
   }
 
   changeAudioData = id => {
@@ -49,9 +53,9 @@ export default class AudioUpdate extends Component {
   handleFormSubmit = event => {
     event.preventDefault()
     const data = { ...this.state }
-    // patchMovie(data, this.props.user)
+    // patchAudio(data, this.props.user)
     //   .then(res => res.ok ? res : new Error())
-    //   .then(() => this.props.flash('Fixed the movie, z', 'flash-success'))
+    //   .then(() => this.props.flash('Fixed the audio, z', 'flash-success'))
     //   .then(this.clearForm)
     //   .catch(() => console.error('oh no got an error'))
 
@@ -65,7 +69,7 @@ export default class AudioUpdate extends Component {
   
   render() {
 
-    const SelectOptions = props.audios.map((audio, index) => {
+    const SelectOptions = this.props.audios.map((audio, index) => {
       return<option key={ index } value={ audio.id }>{ audio.title } (ID: { audio.id })</option>
     })
 
