@@ -10,7 +10,6 @@ const authenticatedOptions = (
     <Link to='/create'>Audio Save</Link>
     <Link to='/delete'>Delete</Link>
     <Link to='/update'>Update</Link>
-    <Link to='/show'>Show</Link>
     <Link to='/index'>Index</Link>
   </React.Fragment>
 )

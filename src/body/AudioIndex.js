@@ -1,21 +1,18 @@
 import React from 'react'
+import AudioShow from './AudioShow.js'
+import { Link } from 'react-router-dom'
 
 const AudioIndex = props => {
   const audios = props.audios
-  const Audio = audios.map((audio, index) => {
+  const audioJsx = audios.map((audio, index) => {
     return <div key={ index }>
-      <h3>{ audio.title } (ID: { audio.id })</h3>
-
-      <ul>
-        <iframe width="560" height="315" src={'https://www.youtube.com/embed/' + audio.title.split('=')[1]} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-        <li>title: { audio.title }</li>
-        <li>artist: { audio.artist }</li>
-      </ul>
+      {/* <Link to='/show/id/title/artist'>Show</Link> */}
+      <AudioShow id={audio.id} title={audio.title} artist={audio.artist} />
     </div>
   })
   return (
     <div>
-      { Audio }
+      { audioJsx }
     </div>
   )
   
