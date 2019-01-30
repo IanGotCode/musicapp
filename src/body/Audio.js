@@ -55,6 +55,7 @@ export default class Audio extends Component {
         <input 
           name="title"
           value={ this.state.title }
+          placeholder="Please put a youtube URL like https://www.youtube.com/watch?v=NyfkaOSqkIE"
           onChange={ this.handleInputChange } />
         
         <label htmlFor="artist">Artist</label>
