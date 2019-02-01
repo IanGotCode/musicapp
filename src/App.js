@@ -114,10 +114,11 @@ class App extends Component {
             <AudioUpdate flash={this.flash} user={user} 
               audios={this.state.audios} />
           )} />
-          <AuthenticatedRoute user={user} path='/show' render={() => (
+          {/* <AuthenticatedRoute user={user} path='/show' render={() => (
             <AudioShow flash={this.flash} user={user} 
               audios={this.state.audios} />
-          )} />
+          )} /> */}
+          <Route path='/show/id/title/artist' component={ AudioShow } />
         </main>
       </React.Fragment>
     )
