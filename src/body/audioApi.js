@@ -1,6 +1,6 @@
 const axios = require('axios')
 
-const apiUrl = 'http://localhost:4741'
+const apiUrl = 'https://IanGotCode.github.io/musicapp'
 
 
 // export const axiosGetAudios = () => {
