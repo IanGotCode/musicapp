@@ -1,4 +1,4 @@
-const apiUrl = require('../apiConfig')
+import apiConfig from '../apiConfig.js'
 
 export const handleErrors = res => {
   if (res.ok) {
@@ -9,7 +9,7 @@ export const handleErrors = res => {
 }
 
 export const signUp = credentials => {
-  return fetch(apiUrl + '/sign-up', {
+  return fetch(apiConfig + '/sign-up', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -25,7 +25,7 @@ export const signUp = credentials => {
 }
 
 export const signIn = credentials => {
-  return fetch(apiUrl + '/sign-in', {
+  return fetch(apiConfig + '/sign-in', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -40,7 +40,7 @@ export const signIn = credentials => {
 }
 
 export const signOut = user => {
-  return fetch(apiUrl + '/sign-out', {
+  return fetch(apiConfig + '/sign-out', {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ export const signOut = user => {
 }
 
 export const changePassword = (passwords, user) => {
-  return fetch(apiUrl + '/change-password', {
+  return fetch(apiConfig + '/change-password', {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',

@@ -1,6 +1,6 @@
 const axios = require('axios')
 
-const apiUrl = require('../apiConfig.js')
+import apiConfig from '../apiConfig.js'
 
 
 // export const axiosGetAudios = () => {
@@ -10,7 +10,7 @@ const apiUrl = require('../apiConfig.js')
 
 
 export const axiosGetAudiosAuthenticated = (user) => {
-  return axios.get(apiUrl + '/audios', {
+  return axios.get(apiConfig + '/audios', {
     headers: {
       'Authorization':`Token token=${user.token}`
     }
@@ -28,7 +28,7 @@ export const axiosGetAudiosAuthenticated = (user) => {
 
 
 export const axiosPostAudio = (data, user) => {
-  return axios.post(apiUrl + '/audios', { audio: { ...data }}, {
+  return axios.post(apiConfig + '/audios', { audio: { ...data }}, {
     headers: {
       'Authorization': `Token token=${user.token}`,
     }
@@ -39,7 +39,7 @@ export const axiosPostAudio = (data, user) => {
 export const axiosPatchAudio = (data, user) => {
   const { id } = data
   delete data.id
-  return axios.patch(apiUrl + '/audios/' + id, { audio: { ...data }}, {
+  return axios.patch(apiConfig + '/audios/' + id, { audio: { ...data }}, {
     headers: {
       'Authorization': `Token token=${user.token}`,
     }

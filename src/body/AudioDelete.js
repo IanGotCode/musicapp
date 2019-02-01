@@ -3,6 +3,7 @@
 // component
 import React, { Component } from 'react'
 import axios from 'axios'
+import apiConfig from '../apiConfig.js'
 
 //the name of the component should match the name
 // of the file
@@ -29,7 +30,7 @@ class audioDelete extends Component {
 
     // get request to get a single audio using axios
     if(idValid) {
-      axios.delete(`http://localhost:4741/audios/${ parseInt(id) }`, {
+      axios.delete(`${apiConfig}/audios/${ parseInt(id) }`, {
         headers: {
           'Authorization': `Token token=${this.props.user.token}`,
         }
