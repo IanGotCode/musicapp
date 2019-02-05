@@ -32,25 +32,6 @@ class App extends Component {
   }
 
   getAllAudios = () => {
-    // getMovies()
-    //   .then(res => res.ok ? res : new Error())
-    //   .then(res => res.json())
-    //   .then(res => this.setState({ movies: res.movies }))
-    //   .then(() => this.props.flash('Got them; movies\', Shawn', 'flash-success'))
-    //   .catch(() => console.error('oh no got an error'))
-
-    // axiosGetMovies()
-    //   .then(res => this.setState({ movies: res.data.movies }))
-    //   .then(() => this.props.flash('Got them; movies\', Shawn', 'flash-success'))
-    //   .catch(() => console.error('oh no got an error'))
-
-    // getMoviesAuthenticated(this.props.user)
-    //   .then(res => res.ok ? res : new Error())
-    //   .then(res => res.json())
-    //   .then(res => this.setState({ movies: res.movies }))
-    //   .then(() => this.props.flash('Got them; movies\', Shawn', 'flash-success'))
-    //   .catch(() => console.error('oh no got an error'))
-
     axiosGetAudiosAuthenticated(this.state.user)
       .then(res => this.setState({ audios: res.data.audios }))
       .then(() => this.flash('Got Audio\', Ian', 'flash-success'))
@@ -97,7 +78,8 @@ class App extends Component {
               <Audio 
                 audios={this.state.audios}
                 flash={this.flash} 
-                user={user} />
+                user={user}
+                getAllAudios={this.getAllAudios} />
             )} />
           <AuthenticatedRoute 
             user={user} 
@@ -108,17 +90,18 @@ class App extends Component {
                 user={user} />
             )} />
           <AuthenticatedRoute user={user} path='/delete' render={() => (
-            <AudioDelete flash={this.flash} user={user} />
+            <AudioDelete flash={this.flash} user={user}
+              getAllAudios={this.getAllAudios} />
           )} />
           <AuthenticatedRoute user={user} path='/update' render={() => (
             <AudioUpdate flash={this.flash} user={user} 
-              audios={this.state.audios} />
+              audios={this.state.audios} getAllAudios={this.getAllAudios} />
           )} />
           {/* <AuthenticatedRoute user={user} path='/show' render={() => (
             <AudioShow flash={this.flash} user={user} 
               audios={this.state.audios} />
           )} /> */}
-          <Route path='/show/id/title/artist' component={ AudioShow } />
+          {/* <Route path='/show/id/title/artist' component={ AudioShow } /> */}
         </main>
       </React.Fragment>
     )

@@ -37,6 +37,7 @@ class audioDelete extends Component {
       })
         .then(() => this.setState({ message: `you deleted a audio, ID: ${ parseInt(id) }` }))
         .catch(console.error)
+        .then(() => this.props.getAllAudios())
     } else {
       this.setState({ message: 'you did not enter a valid ID!'})
     }

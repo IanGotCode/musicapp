@@ -60,9 +60,10 @@ export default class AudioUpdate extends Component {
     //   .catch(() => console.error('oh no got an error'))
 
     axiosPatchAudio(data, this.props.user)
+    console.log(data)
       .then(() => this.props.flash('Audio Updated', 'flash-success'))
       .then(this.clearForm)
-      .then(this.props.getAllAudio)
+      .then(() => this.props.getAllAudios())
       .catch(() => console.error('oh no got an error'))
   }
 
