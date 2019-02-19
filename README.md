@@ -24,6 +24,7 @@ Technologies Used:
 2. CSS
 4. Javascript
 5. Axios
+6. React
 
 LIST OF PROBLEMS/FIXABLE:
 1. Add styling and user experience.
